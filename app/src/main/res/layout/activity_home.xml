@@ -42,4 +42,13 @@
         android:backgroundTint="#3DCFE8"
         android:text="Team"
         android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/all_members_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#3DCFE8"
+        android:text="All Members"
+        android:textAllCaps="false" />
 </LinearLayout>

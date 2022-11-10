@@ -9,34 +9,158 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class DateOfBirthActivity extends AppCompatActivity {
 
-    public Integer[] dates = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-                 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31};
-    public String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-    public Integer[] years = {1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980,
-                              1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
-                              2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020,};
+    public ArrayList<Integer> datesList;
+    public Spinner dateSp;
+    public ArrayAdapter<Integer> arrayAdapter;
+    public ArrayList<String> monthsList;
+    public Spinner monthSp;
+    public ArrayAdapter<String> stringArrayAdapter;
+    public ArrayList<Integer> yearsList;
+    public Spinner yearSp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date_of_birth);
         getSupportActionBar().setTitle("Date of Birth");
+        setupDatesList();
+        setupMonthsList();
+        setupYearsList();
         setDate();
         setMonth();
         setYear();
     }
 
+    public void setupDatesList() {
+        datesList = new ArrayList<>();
+        datesList.add(1);
+        datesList.add(2);
+        datesList.add(3);
+        datesList.add(4);
+        datesList.add(5);
+        datesList.add(6);
+        datesList.add(7);
+        datesList.add(8);
+        datesList.add(9);
+        datesList.add(10);
+        datesList.add(11);
+        datesList.add(12);
+        datesList.add(13);
+        datesList.add(14);
+        datesList.add(15);
+        datesList.add(16);
+        datesList.add(17);
+        datesList.add(18);
+        datesList.add(19);
+        datesList.add(20);
+        datesList.add(21);
+        datesList.add(22);
+        datesList.add(23);
+        datesList.add(24);
+        datesList.add(25);
+        datesList.add(26);
+        datesList.add(27);
+        datesList.add(28);
+        datesList.add(29);
+        datesList.add(30);
+        datesList.add(31);
+    }
+
+    public void setupMonthsList() {
+        monthsList = new ArrayList<>();
+        monthsList.add("January");
+        monthsList.add("February");
+        monthsList.add("March");
+        monthsList.add("April");
+        monthsList.add("May");
+        monthsList.add("June");
+        monthsList.add("July");
+        monthsList.add("August");
+        monthsList.add("September");
+        monthsList.add("October");
+        monthsList.add("November");
+        monthsList.add("December");
+    }
+
+    public void setupYearsList() {
+        yearsList = new ArrayList<>();
+        yearsList.add(1961);
+        yearsList.add(1962);
+        yearsList.add(1963);
+        yearsList.add(1964);
+        yearsList.add(1965);
+        yearsList.add(1966);
+        yearsList.add(1967);
+        yearsList.add(1968);
+        yearsList.add(1969);
+        yearsList.add(1970);
+        yearsList.add(1971);
+        yearsList.add(1972);
+        yearsList.add(1973);
+        yearsList.add(1974);
+        yearsList.add(1975);
+        yearsList.add(1976);
+        yearsList.add(1977);
+        yearsList.add(1978);
+        yearsList.add(1979);
+        yearsList.add(1980);
+        yearsList.add(1981);
+        yearsList.add(1982);
+        yearsList.add(1983);
+        yearsList.add(1984);
+        yearsList.add(1985);
+        yearsList.add(1986);
+        yearsList.add(1987);
+        yearsList.add(1988);
+        yearsList.add(1989);
+        yearsList.add(1990);
+        yearsList.add(1991);
+        yearsList.add(1992);
+        yearsList.add(1993);
+        yearsList.add(1994);
+        yearsList.add(1995);
+        yearsList.add(1996);
+        yearsList.add(1997);
+        yearsList.add(1998);
+        yearsList.add(1999);
+        yearsList.add(2000);
+        yearsList.add(2001);
+        yearsList.add(2002);
+        yearsList.add(2003);
+        yearsList.add(2004);
+        yearsList.add(2005);
+        yearsList.add(2006);
+        yearsList.add(2007);
+        yearsList.add(2008);
+        yearsList.add(2009);
+        yearsList.add(2010);
+        yearsList.add(2011);
+        yearsList.add(2012);
+        yearsList.add(2013);
+        yearsList.add(2014);
+        yearsList.add(2015);
+        yearsList.add(2016);
+        yearsList.add(2017);
+        yearsList.add(2018);
+        yearsList.add(2019);
+        yearsList.add(2020);
+        yearsList.add(2021);
+        yearsList.add(2022);
+    }
+
     public void setDate() {
-        Spinner dateSp = findViewById(R.id.date_sp);
-        ArrayAdapter<Integer> arrayAdapter = new ArrayAdapter<Integer>(
-                this, android.R.layout.simple_list_item_1, dates);
+        dateSp = findViewById(R.id.date_sp);
+        arrayAdapter = new ArrayAdapter<Integer>(
+                this, android.R.layout.simple_list_item_1, datesList);
         dateSp.setAdapter(arrayAdapter);
         dateSp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                Toast.makeText(DateOfBirthActivity.this, "Date : " + dates[position], Toast.LENGTH_SHORT).show();
+                Toast.makeText(DateOfBirthActivity.this, "Date : " + datesList.get(position), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -47,14 +171,14 @@ public class DateOfBirthActivity extends AppCompatActivity {
     }
 
     public void setMonth() {
-        Spinner monthSp = findViewById(R.id.month_sp);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                this, R.layout.dropdown_item_2, months);
-        monthSp.setAdapter(arrayAdapter);
+        monthSp = findViewById(R.id.month_sp);
+        stringArrayAdapter = new ArrayAdapter<String>(
+                this, R.layout.dropdown_item_2, monthsList);
+        monthSp.setAdapter(stringArrayAdapter);
         monthSp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                Toast.makeText(DateOfBirthActivity.this, "Month : " + months[position], Toast.LENGTH_SHORT).show();
+                Toast.makeText(DateOfBirthActivity.this, "Month : " + monthsList.get(position), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -65,14 +189,14 @@ public class DateOfBirthActivity extends AppCompatActivity {
     }
 
     public void setYear() {
-        Spinner yearSp = findViewById(R.id.year_sp);
-        ArrayAdapter<Integer> arrayAdapter = new ArrayAdapter<Integer>(
-                this, android.R.layout.simple_list_item_1, years);
+        yearSp = findViewById(R.id.year_sp);
+        arrayAdapter = new ArrayAdapter<Integer>(
+                this, android.R.layout.simple_list_item_1, yearsList);
         yearSp.setAdapter(arrayAdapter);
         yearSp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                Toast.makeText(DateOfBirthActivity.this, "Year : " + years[position], Toast.LENGTH_SHORT).show();
+                Toast.makeText(DateOfBirthActivity.this, "Year : " + yearsList.get(position), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -81,6 +205,4 @@ public class DateOfBirthActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }
