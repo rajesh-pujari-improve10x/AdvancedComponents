@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="#3DCFE8"
+        android:backgroundTint="#00BCD4"
         android:text="Lucky Number"
         android:textAllCaps="false" />
 
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="#3DCFE8"
+        android:backgroundTint="#00BCD4"
         android:text="Location"
         android:textAllCaps="false" />
 
@@ -30,7 +30,7 @@
         android:id="@+id/date_of_birth_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#3DCFE8"
+        android:backgroundTint="#00BCD4"
         android:text="Date of Birth"
         android:textAllCaps="false" />
 
@@ -39,8 +39,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#3DCFE8"
+        android:backgroundTint="#00BCD4"
         android:text="Team"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/team_list_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#00BCD4"
+        android:text="Team List"
         android:textAllCaps="false" />
 
     <Button
@@ -48,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#3DCFE8"
+        android:backgroundTint="#00BCD4"
         android:text="All Members"
         android:textAllCaps="false" />
 </LinearLayout>
